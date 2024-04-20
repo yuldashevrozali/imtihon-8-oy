@@ -76,7 +76,7 @@ export default function Header() {
                                 <div className='coin-block' key={index}>
                                     <img src={coin.coinimg} alt="" />
                                     <h1>{coin.coinprice.toLocaleString()}</h1>
-                                    <button onClick={() => removeclick(index)}>remove</button>
+                                    <button onClick={() => removeclick(index)}>removee</button>
 
                                 </div>
                             ))}
