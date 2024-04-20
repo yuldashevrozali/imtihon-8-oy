@@ -47,13 +47,17 @@ export default function Header() {
         });
     }
 
-
+    function allremove() {
+        setdata([]);
+        localStorage.removeItem('coins');
+    }
+    
 
     return (
         <>
             <div className="header-top">
                 <div className="header-logo">
-                    <h1>CRYPTOFOLIO</h1>
+                    <h1><a href='/'>CRYPTOFOLIO</a></h1>
                 </div>
                 <div className="header-watchlist">
                     <div className="dropdown">
@@ -76,10 +80,11 @@ export default function Header() {
                                 <div className='coin-block' key={index}>
                                     <img src={coin.coinimg} alt="" />
                                     <h1>{coin.coinprice.toLocaleString()}</h1>
-                                    <button onClick={() => removeclick(index)}>removee</button>
+                                    <button onClick={() => removeclick(index)}>remove</button>
 
                                 </div>
                             ))}
+                            <button id='allremove' onClick={allremove}>remove all</button>
                         </div>
                     </div>
                 </div>

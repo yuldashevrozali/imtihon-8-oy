@@ -1,3 +1,36 @@
-.crypto-chart h2{
+.button-group button {
+    background-color: #87CEEB;
+    width: 114px;
+    padding-left: 6px;
+    border: none;
+    height: 41px;
+    border: 1px solid #87CEEB;
+    color: #14161A;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19.5px;
+    text-align: left;
+}
+
+.button-group {
+    align-items: center;
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.button-group button.active {
+    background-color: #14161A;
     color: white;
+}
+
+.crypto-chart p{
+    font-family: Montserrat;
+    text-align: center;
+    color: white;
+}
+
+.crypto-chart {
+    margin-left: 15px;
 }

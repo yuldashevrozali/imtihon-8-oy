@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Chart from 'react-apexcharts';
 import { useParams } from 'react-router-dom';
+import './index.css'
 
 export default function CryptoChart() {
   const [coinData, setCoinData] = useState(null);
   const [selectedRange, setSelectedRange] = useState('24h');
+  
   const { id } = useParams();
 
   useEffect(() => {
@@ -46,7 +48,6 @@ export default function CryptoChart() {
 
   return (
     <div className="crypto-chart">
-      <h2>Cryptocurrency Chart</h2>
       <p>Price Changes for the Last {selectedRange}</p>
 
       <Chart
@@ -57,9 +58,30 @@ export default function CryptoChart() {
       />
 
       <div className="button-group">
-        <button className={selectedRange === '24h' ? 'active' : ''} onClick={() => setSelectedRange('24h')}>Last 24 Hours</button>
-        <button className={selectedRange === '7d' ? 'active' : ''} onClick={() => setSelectedRange('7d')}>Last 7 Days</button>
-        <button className={selectedRange === '14d' ? 'active' : ''} onClick={() => setSelectedRange('14d')}>Last 14 Days</button>
+        <button
+          className={selectedRange === '24h' ? 'active' : ''}
+          onClick={() => setSelectedRange('24h')}
+        >
+          Last 24 Hours
+        </button>
+        <button
+          className={selectedRange === '30d' ? 'active' : ''}
+          onClick={() => setSelectedRange('30d')}
+        >
+          Last 30 Days
+        </button>
+        <button
+          className={selectedRange === '90d' ? 'active' : ''}
+          onClick={() => setSelectedRange('90d')}
+        >
+          Last 3 months
+        </button>
+        <button
+          className={selectedRange === '360d' ? 'active' : ''}
+          onClick={() => setSelectedRange('360d')}
+        >
+          1 year
+        </button>
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { SelectedOptionContext } from '../Context/context';
-import img from '../../assets/img.svg'
 import './index.css'
 import CryptoChart from '../CryptoChart';
 

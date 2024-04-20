@@ -8,7 +8,7 @@
 
 .coin-left {
     margin-top: 25px;
-    height: 500px;
+    height: 72%;
     border-right: 3px solid gray;
     padding-left: 4%;
     padding-right: 1%;
@@ -16,7 +16,6 @@
 }
 
 .coin-left p {
-
     display: block;
     font-family: sans-serif;
     width: 450px;
@@ -48,7 +47,7 @@
 
 .coin-left h1 {
     margin-top: 25px;
-    font-family: 'Montserrat';
+    font-family: Montserrat;
     font-size: 44px;
     font-weight: 700;
     line-height: 56.02px;
@@ -57,7 +56,7 @@
 }
 
 .coin-left #coin-p {
-    font-family: sans-serif;
+    font-family: Montserrat;
     font-size: 14px;
     font-weight: 400;
     line-height: 28px;
@@ -80,8 +79,12 @@
     animation: l1 1s infinite;
 }
 
-@keyframes l1 {
-    to {
-        transform: rotate(.5turn)
-    }
-}
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid;
+    border-color: #000 white;
+    animation: l1 1s infinite;
+  }
+  @keyframes l1 {to{transform: rotate(.5turn)}}
