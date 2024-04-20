@@ -4,6 +4,7 @@ import Header from './components/Headers';
 import Currency from './components/Currency';
 import CryptoDetails from './components/Coin';
 import { SelectedOptionProvider } from './components/Context/context';
+// import CryptoChart from './components/CryptoChart';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Currency />} />
+          {/* <Route path="/crypto/:id" component={<CryptoChart/>} /> */}
           <Route path="/crypto/:id" element={<CryptoDetails />} />
         </Routes>
       </SelectedOptionProvider>

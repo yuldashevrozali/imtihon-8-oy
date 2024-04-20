@@ -3,12 +3,12 @@ import { useParams } from 'react-router-dom';
 import { SelectedOptionContext } from '../Context/context';
 import img from '../../assets/img.svg'
 import './index.css'
+import CryptoChart from '../CryptoChart';
 
 const CryptoDetails = () => {
     const { id } = useParams();
     const { selectedOption } = useContext(SelectedOptionContext);
     const [cryptoData, setCryptoData] = useState(null);
-    console.log(10, selectedOption);
 
     useEffect(() => {
         async function getCryptoData() {
@@ -31,7 +31,7 @@ const CryptoDetails = () => {
     }, [id, selectedOption]);
 
     if (!cryptoData) {
-        return <div>Loading...</div>;
+        return <div class="loader"></div>;
     }
     console.log(cryptoData);
 
@@ -60,13 +60,7 @@ const CryptoDetails = () => {
 
             </div>
             <div className="coin-right">
-                <img src={img} alt="" />
-                <div className="buttons">
-                    <button>24 hours</button>
-                    <button>30 Days</button>
-                    <button>3 Months</button>
-                    <button>1 Year</button>
-                </div>
+            <CryptoChart></CryptoChart>
             </div>
         </div>
     );

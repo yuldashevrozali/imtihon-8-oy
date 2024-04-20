@@ -46,7 +46,6 @@ export default function Currency() {
 
     const handleCoinClick = (coin) => {
         navigate(`/crypto/${coin.id}`);
-        console.log(49, coin);
 
         const coinInfo = {
             coinimg: coin.image,
@@ -71,7 +70,7 @@ export default function Currency() {
     return (
         <>
             {!data ? (
-                <div>Loading...</div>
+                <div class="loader"></div>
             ) : (
                 <div>
                     <div className="header-bottom">
@@ -84,7 +83,7 @@ export default function Currency() {
                         <Swiper
                             modules={[Autoplay]}
                             spaceBetween={50}
-                            slidesPerView={3}
+                            slidesPerView={4}
                             autoplay={{ delay: 2000, disableOnInteraction: true }}
                             loop={true}
                         >
