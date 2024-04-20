@@ -10,12 +10,15 @@
     margin-top: 25px;
     height: 500px;
     border-right: 3px solid gray;
+    padding-left: 4%;
+    padding-right: 1%;
+    font-family: sans-serif;
 }
 
 .coin-left p {
-    margin-left: 10%;
+
     display: block;
-    font-family: 'Montserrat';
+    font-family: sans-serif;
     width: 450px;
     font-size: 24px;
     font-weight: 400;
@@ -34,7 +37,6 @@
     line-height: 32.02px;
     text-align: left;
     color: white;
-    margin-left: 10%;
 }
 
 .coin-left img {
@@ -55,13 +57,12 @@
 }
 
 .coin-left #coin-p {
-    font-family: Montserrat;
+    font-family: sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 28px;
     letter-spacing: 0.15000000596046448px;
     color: white;
-    margin-left: 10%;
 }
 
 .coin-right img {

@@ -24,55 +24,42 @@ export default function CryptoChart() {
     fetchData();
   }, [id, selectedRange]);
 
-  const getChartData = (range) => {
-    switch (range) {
-      case '24h':
-        return [coinData.market_data.market_cap_change_24h];
-      case '7d':
-        return [coinData.market_data.price_change_percentage_7d];
-      case '14d':
-        return [coinData.market_data.price_change_percentage_14d];
-      default:
-        return [];
-    }
+  const getChartData = () => {
+    if (!coinData || !coinData.prices) return [];
+    return coinData.prices.map(([time, value]) => ({ x: time, y: value }));
   };
 
-  if (!coinData || !coinData.market_data) {
+  if (!coinData) {
     return <div>Loading...</div>;
   }
 
-  const chartData = {
-    options: {
-      chart: {
-        id: 'basic-line',
-      },
-      xaxis: {
-        categories: ['Last 24 Hours', 'Last 7 Days', 'Last 14 Days'],
-      },
+  const chartData = getChartData();
+
+  const options = {
+    chart: {
+      type: 'line',
     },
-    series: [
-      {
-        name: 'Price Change Percentage',
-        data: getChartData(selectedRange),
-      },
-    ],
+    xaxis: {
+      type: 'datetime',
+    },
   };
 
   return (
     <div className="crypto-chart">
-      <p>Price {selectedRange} in </p>
+      <h2>Cryptocurrency Chart</h2>
+      <p>Price Changes for the Last {selectedRange}</p>
 
       <Chart
-        options={chartData.options}
-        series={chartData.series}
+        options={options}
+        series={[{ data: chartData }]}
         type="line"
-        width="500"
+        width={800}
       />
 
-      <div>
-        <button onClick={() => setSelectedRange('24h')}>Last 24 Hours</button>
-        <button onClick={() => setSelectedRange('7d')}>Last 7 Days</button>
-        <button onClick={() => setSelectedRange('14d')}>Last 14 Days</button>
+      <div className="button-group">
+        <button className={selectedRange === '24h' ? 'active' : ''} onClick={() => setSelectedRange('24h')}>Last 24 Hours</button>
+        <button className={selectedRange === '7d' ? 'active' : ''} onClick={() => setSelectedRange('7d')}>Last 7 Days</button>
+        <button className={selectedRange === '14d' ? 'active' : ''} onClick={() => setSelectedRange('14d')}>Last 14 Days</button>
       </div>
     </div>
   );
