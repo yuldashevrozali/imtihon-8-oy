@@ -54,7 +54,7 @@ const CryptoDetails = () => {
                 <p id='coin-p'>{cryptoData.description.en.slice(0, 188)}</p>
 
                 <p><span>Rank: </span>{cryptoData.market_cap_rank}</p>
-                <p><span>Current Price: </span>{cryptoData.market_data.current_price[selectedOption.toLowerCase()]}</p>
+                <p><span>Current Price: </span>{selectedOption === 'USD' ? '$' : selectedOption === 'INR' ? '₹' : '₽'}{cryptoData.market_data.current_price[selectedOption.toLowerCase()]}</p>
                 <p><span>Market Cap:</span>{formatMarketCap(cryptoData.market_data.market_cap_change_24h)}</p>
 
             </div>
